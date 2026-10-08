@@ -1,0 +1,72 @@
+# ==========================================
+# CascadeGuard .gitignore
+# ==========================================
+
+# --- Python Bytecode & Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Environment Variables & Secrets ---
+# Protect API keys (LiteLLM, OpenAI, Hugging Face, ngrok, etc.)
+.env
+.env.local
+.env.*
+!.env.example
+
+# --- Logs & Telemetry ---
+*.log
+streamlit.log
+logs/*.log
+
+# --- Machine Learning Training Checkpoints & Heavy Weights ---
+# Intermediate checkpoints contain optimizer/scheduler states (>70MB) that bloat git history
+**/checkpoints/
+checkpoint-*/
+*.pt
+*.pth
+*.ckpt
+*.bin
+
+# Note on Model Weights:
+# 'models/qwen_xai_adapter/adapter_model.safetensors' is ~35MB.
+# If you want to commit the final LoRA adapter directly to Git, uncomment the lines below.
+# Otherwise, host weights on Hugging Face Hub or use Git LFS:
+# !models/qwen_xai_adapter/adapter_model.safetensors
+# !models/qwen_xai_adapter/tokenizer.json
+
+# --- HF & Experiment Tracking Caches ---
+wandb/
+runs/
+.cache/
+hf_cache/
+
+# --- Streamlit Secrets ---
+.streamlit/secrets.toml
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# --- OS & Editor Artifacts ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+
+#personal md files
+optimization_research_log.md
+qwen_training_report.md
